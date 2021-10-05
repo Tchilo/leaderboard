@@ -15,7 +15,7 @@
   <div class="name-head">
     <h3>Recent scores</h3>
    <div class="btn-div">
-    <button class="refresh" type="button">Refresh</button>
+    <button id="ref-btn" class="refresh" type="button">Refresh</button>
    </div> 
   </div>
   <div class="main-container">
@@ -31,9 +31,9 @@
     <div class="list d-none">
       <h2>Add your score</h2>
       <form action="#" class="formm" name="form" onsubmit="return">
-        <input type="text" class="title box" name="title" placeholder=" Your name" required> <br>
-        <input type="text" class="author box" name="author" placeholder="Your score" required>
-        <div><input type="button" class="sub box" value="Submit"></div>
+        <input type="text" id="name" class="name box" name="title" placeholder=" Your name" required> <br>
+        <input type="text" id="score" class="score box" name="author" placeholder="Your score" required>
+        <div><input id="sub" type="button" class="sub box" value="Submit"></div>
       </form>
     </div>
   </div>
