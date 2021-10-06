@@ -1,5 +1,5 @@
 const grab = (e) => document.getElementById(e);
-
+const sub =grab('sub')
 const refBtn = grab('ref-btn');
 const ol = grab('list');
 
