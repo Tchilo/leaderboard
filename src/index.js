@@ -17,3 +17,9 @@ const refresh = async (gameID) => {
       }
     });
 };
+
+refBtn.addEventListener('click', async () => {
+  if (localStorage.getItem('gameID') !== null) {
+    await refresh(localStorage.getItem('gameID'));
+  }
+});
