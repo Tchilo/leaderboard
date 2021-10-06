@@ -26,19 +26,37 @@ refBtn.addEventListener('click', async () => {
 
 const init = async () => {
   if (localStorage.getItem('gameID') === null) {
-    fetch('https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/',{
-        method: 'POST',
-        body: JSON.stringify({
-          name: 'Formula1'
-        }),
-        headers: {
-          'Content-type': 'application/json; charset=UTF-8'
-        },
+    fetch('https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/', {
+      method: 'POST',
+      body: JSON.stringify({
+        name: 'Formula1',
+      }),
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+      },
     })
-    .then(response => response.json())
-    .then(data => {
-      localStorage.setItem('gameID',JSON.stringify(data))
-    } )
-    } else {
-      await refresh(localStorage.getItem('gameID'));
-    }
+      .then((response) => response.json())
+      .then((data) => {
+        localStorage.setItem('gameID', JSON.stringify(data));
+      });
+  } else {
+    await refresh(localStorage.getItem('gameID'));
+  }
+  sub.addEventListener('click', (e) => {
+    e.preventDefault();
+    const inputData = {
+      user: grab('name').value,
+      score: grab('score').value,
+    };
+    fetch(`https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/${localStorage.getItem('gameID')}/scores/`, {
+      method: 'POST',
+      body: JSON.stringify(inputData),
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+      },
+    })
+      .then((response) => response.json());
+  });
+};
+
+init();
