@@ -9,7 +9,7 @@ const refresh = async (gameID) => {
     .then((data) => {
       ol.innerHTML = '';
       const scores = data.result;
-      for (let index = 0; index < scores.length; index++) {
+      for (let index = 0; index < scores.length; index + 1) {
         const element = scores[index];
         const template = document.createElement('template');
         template.innerHTML = `<li>${element.user}:${element.score}</li>`;
