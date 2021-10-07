@@ -3,7 +3,7 @@
 # Leaderboard
 
 > Building leaderboard project with webpack, Css, JavaScript. This project can be able to get and send data to an api. 
-
+![screenshot](./leaders.png)
 Built this porject using HTML ,CSS and Webpack .
 
 ## [Live link]()

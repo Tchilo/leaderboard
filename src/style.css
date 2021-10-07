@@ -4,7 +4,7 @@ h1 {
 }
 
 body {
-  background-color: aqua;
+  background-color: #2a9d8f;
 }
 
 .blank {
@@ -50,7 +50,7 @@ body {
   display: flex;
   justify-content: space-between;
   padding: 15px;
-  margin-bottom: 1rem;
+  margin-top: 1rem;
   border-radius: 4px;
   background-color: rgb(245, 245, 245);
 }
@@ -67,6 +67,7 @@ body {
   border: 1px solid lightgray;
   height: 400px;
   overflow-y: scroll;
+  background-color: #264653;
 }
 
 .box {
