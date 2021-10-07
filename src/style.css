@@ -3,6 +3,20 @@ h1 {
   font-size: 50px;
 }
 
+body {
+  background-color: #2a9d8f;
+}
+
+.blank {
+  background-color: red;
+  padding: 20px;
+  color: #fff;
+  border-radius: 1rem;
+  font-size: 20px;
+  margin: 0;
+  display: none;
+}
+
 .list-name {
   width: 40%;
 }
@@ -36,15 +50,24 @@ h1 {
   display: flex;
   justify-content: space-between;
   padding: 15px;
-  margin-bottom: 1rem;
+  margin-top: 1rem;
   border-radius: 4px;
   background-color: rgb(245, 245, 245);
 }
 
 .name-list {
-  border: 1px solid #7d53de;
-  padding: 20px;
-  margin: 10px;
+  width: 90%;
+  max-width: 960px;
+  margin: 20px auto;
+  border-radius: 6px;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
+  padding: 0 0 20px;
+  overflow: hidden;
+  border: 1px solid lightgray;
+  height: 400px;
+  overflow-y: scroll;
+  background-color: #264653;
 }
 
 .box {

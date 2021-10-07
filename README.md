@@ -3,7 +3,7 @@
 # Leaderboard
 
 > Building leaderboard project with webpack, Css, JavaScript. This project can be able to get and send data to an api. 
-
+![screenshot](./leaders.png)
 Built this porject using HTML ,CSS and Webpack .
 
 ## [Live link]()
@@ -16,6 +16,10 @@ coming soon!
 - JavaScript
 - webpack
 
+## API Setup
+For those of you who might be intreasted in knowing how the api works click the link below. You will find all that you need to get you started on how to use the Leaderboard API service.
+Just click the link to get you started
+### [Link to Leaderboard API service](https://www.notion.so/Leaderboard-API-service-24c0c3c116974ac49488d4eb0267ade3)
 ## Getting Started
 
 
