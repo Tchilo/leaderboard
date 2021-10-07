@@ -1,4 +1,4 @@
-import './style.css'
+import './style.css';
 
 const grab = (e) => document.getElementById(e);
 const sub = grab('sub');
@@ -6,23 +6,25 @@ const refBtn = grab('ref-btn');
 const ol = grab('list');
 
 const refresh = async (gameID) => {
-  fetch(`https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/${gameID}/scores/`)
-    .then((response) => response.json())
-    .then((data) => {
-      ol.innerHTML = '';
-      const scores = data.result;
-      for (let index = 0; index < scores.length; index + 1) {
-        const element = scores[index];
-        const template = document.createElement('template');
-        template.innerHTML = `<li>${element.user}:${element.score}</li>`;
-        ol.appendChild(template.content.firstChild);
-      }
-    });
+  await fetch(`https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/${gameID}/scores/`)
+    .then((response) => {
+      const res = response.json();
+      res.then((finalResponse) => {
+        const { result } = finalResponse;
+        result.forEach((element) => {
+          ol.innerHTML += `<li>${element.user}:${element.score}</li>`;
+        });
+      });
+    })
+    .catch((error) => { throw new Error(error); });
 };
 
 refBtn.addEventListener('click', async () => {
-  if (localStorage.getItem('gameID') !== null) {
-    await refresh(localStorage.getItem('gameID'));
+  const { result } = JSON.parse(localStorage.getItem('gameID') || '');
+  const newID = result.slice(14, 34);
+  if (newID !== null) {
+    ol.innerHTML = ''; // clear out elements before calling the refresh
+    refresh(newID);
   }
 });
 
@@ -41,16 +43,21 @@ const init = async () => {
       .then((data) => {
         localStorage.setItem('gameID', JSON.stringify(data));
       });
-  } else {
-    await refresh(localStorage.getItem('gameID'));
   }
-  sub.addEventListener('click', (e) => {
+
+  sub.addEventListener('click', async (e) => {
     e.preventDefault();
     const inputData = {
       user: grab('name').value,
       score: grab('score').value,
     };
-    fetch(`https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/${localStorage.getItem('gameID')}/scores/`, {
+
+    grab('name').value = '';
+    grab('score').value = '';
+    const { result } = JSON.parse(localStorage.getItem('gameID') || '');
+    const newID = result.slice(14, 34);
+
+    await fetch(`https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/${newID}/scores/`, {
       method: 'POST',
       body: JSON.stringify(inputData),
       headers: {
