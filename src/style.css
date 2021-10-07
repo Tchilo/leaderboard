@@ -42,9 +42,17 @@ h1 {
 }
 
 .name-list {
-  border: 1px solid #7d53de;
-  padding: 20px;
-  margin: 10px;
+  width: 90%;
+  max-width: 960px;
+  margin: 20px auto;
+  border-radius: 6px;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
+  padding: 0 0 20px;
+  overflow: hidden;
+  border: 1px solid lightgray;
+  height: 400px;
+  overflow-y: scroll;
 }
 
 .box {
