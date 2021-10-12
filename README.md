@@ -6,7 +6,7 @@
 ![screenshot](./leaders.png)
 Built this porject using HTML ,CSS and Webpack .
 
-## [Live link]()
+## [Live link](https://raw.githack.com/Tchilo/leaderboard/dev/src/index.html)
 coming soon!
 
 ## Built With
